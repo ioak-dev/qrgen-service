@@ -20,11 +20,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    path('task/<str:task_id>/status', views.get_status),
-    path('task/<str:task_id>/result', views.get_result),
-    path('admin/<str:tenant>/', admin.site.urls),
-    path('auth/<str:tenant>/', include('app.auth.urls')),
-    path('tenant/', include('app.tenant.urls')),
-    path('user/<str:tenant>/', include('app.user.urls')),
-    path('url/<str:tenant>/', include('app.url.urls'))
+    path('url/', include('app.url.urls'))
 ]
