@@ -7,14 +7,23 @@ domain = 'url'
 # def find(request, tenant):
 #     data = db_utils.find(tenant, domain, {}))
 #     return (200, {'data': data})
-
-def find_all(request):
-    data = db_utils.find(domain, {})
-    return (200, {'data': data})
-
-def update_url(request):
-    updated_record = db_utils.upsert(domain, request.body, None)
+def create(request,domain):
+    updated_record = db_utils.upsert(domain)
     return (200, {'data': updated_record})
 
-# def find_by_user_id(space_id, user_id):
-#     return db_utils.find(space_id, domain, {'_id': user_id})
+#def find_get_url_key(urlkey) :
+ #   data = db_utils.find({'urlkey':urlkey})
+  #   return (200, {'data': data})
+
+def find_by_key( acesskey):
+    data = db_utils.find_by_key(domain, {'acesskey':acesskey})
+    return (200, {'data':data})
+
+
+def update_by_key(acesskey):
+    data = db_utils.upsert( domain, {'acesskey': acesskey})
+    return (200, {'data': updated_record})
+
+def delete_by_key(acesskey):
+    data = db_utils.delete(domain, {'acesskey':acesskey})
+    return (200, {'deleted_count': data.deleted_count})
