@@ -4,26 +4,23 @@ from bson.objectid import ObjectId
 
 domain = 'url'
 
-# def find(request, tenant):
-#     data = db_utils.find(tenant, domain, {}))
-#     return (200, {'data': data})
-def create(request,domain):
-    updated_record = db_utils.upsert(domain)
-    return (200, {'data': updated_record})
+def create(request):
+    data = db_utils.create(domain)
+    return (200, {'data': data})
 
 #def find_get_url_key(urlkey) :
  #   data = db_utils.find({'urlkey':urlkey})
   #   return (200, {'data': data})
 
-def find_by_key( acesskey):
-    data = db_utils.find_by_key(domain, {'acesskey':acesskey})
-    return (200, {'data':data})
+#def find_by_key( acesskey):
+ #   data = db_utils.find_by_key(domain, {'acesskey':acesskey})
+ #   return (200, {'data':data})
 
 
-def update_by_key(acesskey):
-    data = db_utils.upsert( domain, {'acesskey': acesskey})
-    return (200, {'data': updated_record})
+#def update_by_key(acesskey):
+#    data = db_utils.upsert( domain, {'acesskey': acesskey})
+  #  return (200, {'data': updated_record})
 
-def delete_by_key(acesskey):
-    data = db_utils.delete(domain, {'acesskey':acesskey})
-    return (200, {'deleted_count': data.deleted_count})
+#def delete_by_key(acesskey):
+#    data = db_utils.delete(domain, {'acesskey':acesskey})
+  #  return (200, {'deleted_count': data.deleted_count})
